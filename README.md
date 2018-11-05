@@ -33,8 +33,7 @@
 * General information
 * Such as namespace
 ### Structural divition
-**`Function`**
-Function explenation
-
-**`Function`**
-Function explenation
+* **`Function`**
+    * Function explenation
+* **`Function`**
+    * Function explenation
