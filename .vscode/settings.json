@@ -34,7 +34,13 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp",
+        "string": "cpp",
+        "tuple": "cpp",
+        "vector": "cpp"
     },
     "terminal.integrated.shell.windows": "cmd.exe"
 }

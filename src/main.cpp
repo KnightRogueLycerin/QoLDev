@@ -9,7 +9,9 @@
 #include "WCI.hpp"
 
 int main() {
-    wci::out("Hello World");
-
-    system("pause");
+    wci::setColorDefault();
+    wci::out("Hello ", false);
+    wci::out("World", wci::Color::DARK_GREEN, false);
+    wci::out("!");
+    wci::wait();
 }
