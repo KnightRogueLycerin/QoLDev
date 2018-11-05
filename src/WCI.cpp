@@ -68,15 +68,24 @@ namespace wci{
     }
     // Text
     void out(const std::string& output, const bool& newline){
-        std::string out = (newline) ? output + "\n" : output;
-        std::cout << out;
+        if(newline)
+            std::cout << output << std::endl;
+        else
+            std::cout << output;
     }
-    void out(const std::string& output, const Color& color, const bool& newline){
+    void out(const std::string& output, const Color& text, const bool& newline){
         int c = C_Text; 
-        setTextColor(color);
+        setTextColor(text);
         out(output, newline);
         setTextColor((Color)c);
     }
+    void out(const std::string& output, const Color& text, const Color& background, const bool& newline){
+        int ct = C_Text; int cb = C_Background; 
+        setColor(text, background);
+        out(output, newline);
+        setColor((Color)ct, (Color)cb);
+    }
+
 
     /* Input */
     bool in(std::string& input){

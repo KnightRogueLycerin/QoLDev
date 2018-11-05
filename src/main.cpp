@@ -13,7 +13,6 @@ int main() {
     wci::out("Hello ", false);
     wci::out("World", wci::GREEN, false);
     wci::out("!");
-    wci::setColor(wci::BLACK, wci::YELLOW);
-    wci::out("////////////");
+    wci::out("////////////", wci::BLACK, wci::YELLOW);
     wci::wait();
 }
