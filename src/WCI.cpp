@@ -66,7 +66,6 @@ namespace wci{
         C_Background = (int)color;
         commitColor();
     }
-
     // Text
     void out(const std::string& output, const bool& newline){
         std::string out = (newline) ? output + "\n" : output;

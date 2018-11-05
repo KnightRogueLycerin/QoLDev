@@ -1,17 +1,19 @@
 //============================================================================
 // Name        : My Quality of Life Development
 // Author      : Johan 'KnightRougeLycerin' Åhlander
-// Version     : 0.0
+// Version     : 0.01
 // Copyright   : GNU GPLv3
-// Description : Environment to work with Saab work application test
+// Description : Libraries for QoL
 //============================================================================
 
 #include "WCI.hpp"
 
 int main() {
-    wci::setColorDefault();
+    wci::setTextColor(wci::TEAL);
     wci::out("Hello ", false);
-    wci::out("World", wci::Color::DARK_GREEN, false);
+    wci::out("World", wci::GREEN, false);
     wci::out("!");
+    wci::setColor(wci::BLACK, wci::YELLOW);
+    wci::out("////////////");
     wci::wait();
 }

@@ -13,3 +13,6 @@ Personal Development for QoL liberies
 
 === Known Issues ===
     Nothing is in a usable state
+
+=== Notes ===
+    Implimentation will be moved to the header once it's in a usable state
