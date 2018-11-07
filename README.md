@@ -45,8 +45,13 @@
     * Spesificly change the active background color
 
 ### Input
-* **`bool in(std::string& input)`**
-    * Not done
+* **`int in(std::string& input)`**
+    * Fill the parameter string with input from the promt
+    * Include whitespace
+    * Minimal error handeling
+        * returned 0 means a successful operation
+        * returned -1 means EOF error
+        * returned -2 means other kind of failure
 
 
 # Known Issues
