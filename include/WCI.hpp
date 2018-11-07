@@ -27,5 +27,5 @@ namespace wci{
     void setBackgroundColor(const Color color = Color::BLACK);
     
     // Input
-    bool in(std::string& input);
+    int in(std::string& input);
 }

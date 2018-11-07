@@ -88,8 +88,15 @@ namespace wci{
 
 
     /* Input */
-    bool in(std::string& input){
-        input = "Not done yet!";
-        return false;
+    int in(std::string& input){
+        input.clear();
+        std::getline(std::cin, input);
+        if(std::cin)
+            return 0;       // successful operation
+        else
+            if(std::cin.eof())
+                return -1;  // eof error
+            else
+                return -2;  // Other kind of failure
     }
 }
