@@ -17,14 +17,15 @@ void wait_next(bool end){
     wci::clear();
 }
 
-int main() {
+int wci_test(){
     // Datablock
     char c;
     int err, integer;
     float floating;
     double real;
     std::string s;
-    if(false){  // Color, out, & wait test 
+    /* Testing */
+    if(true){  // Color, out, & wait test 
         wci::out("\tCOLOR, WCI::OUT, & WAIT TEST\n", wci::DARK_TEAL);
 
         wci::setTextColor(wci::TEAL);
@@ -33,11 +34,12 @@ int main() {
         wci::out("!");
         wci::out("////////////", wci::BLACK, wci::YELLOW);
         
+        wci::setColorDefault();
+
         wait_next(false);
     }
-
     if(true){   // In char tests
-    wci::out("\tIN(CHAR) TEST\n", wci::DARK_TEAL);
+        wci::out("\tIN(CHAR) TEST\n", wci::DARK_TEAL);
         
         for(int i = 0; i < 3; i++){
             wci::out("Input char: ", false);
@@ -48,9 +50,8 @@ int main() {
         
         wait_next(false);
     }
-
     if(true){   // In int tests
-    wci::out("\tIN(INT) TEST\n", wci::DARK_TEAL);
+        wci::out("\tIN(INT) TEST\n", wci::DARK_TEAL);
 
         for(int i = 0; i < 3; i++){
             wci::out("Input integer number: ", false);
@@ -69,9 +70,8 @@ int main() {
         
         wait_next(false);
     }
-
     if(true){   // In float tests
-    wci::out("\tIN(FLOAT) TEST\n", wci::DARK_TEAL);
+        wci::out("\tIN(FLOAT) TEST\n", wci::DARK_TEAL);
 
         for(int i = 0; i < 3; i++){
             wci::out("Input float number: ", false);
@@ -90,9 +90,8 @@ int main() {
         
         wait_next(false);
     }
-
     if(true){   // In double tests
-    wci::out("\tIN(DOUBLE) TEST\n", wci::DARK_TEAL);
+        wci::out("\tIN(DOUBLE) TEST\n", wci::DARK_TEAL);
 
         for(int i = 0; i < 3; i++){
             wci::out("Input 'double' number: ", false);
@@ -111,11 +110,9 @@ int main() {
         
         wait_next(false);
     }
+    if(true){ // In std::string test
+        wci::out("\tIN(STRING) TEST\n", wci::DARK_TEAL);
 
-    if(false){ // In std::string test
-    wci::out("\tIN(STRING) TEST\n", wci::DARK_TEAL);
-        
-        wci::setColorDefault();
         wci::out("Please write as string with spaces!\nInput:", false);
         err = wci::in(s);
         if(err != 0){
@@ -130,8 +127,19 @@ int main() {
         
         wait_next(false);
     }
+}
 
-    wci::out("\tThank you for participating!", wci::PINK);
+int main() {
+    int err;
+
+    if(true){   // wci testing
+        err = wci_test();
+        if(err != 0){
+        return err; 
+        }
+    }
+    
+    wci::out("Thank you for participating!", wci::PINK);
     wait_next(true);
     return 0;
 }

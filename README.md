@@ -23,7 +23,6 @@
     * Clears the console window
 * **`void wait()`**
     * Wait for input before coninuing code
-    * **Not** `System("pause")`!!
 * **`void colorChart()`**
     * Print a chart in the console over all 256 color combinations
 ### Output
