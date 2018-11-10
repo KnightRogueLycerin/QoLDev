@@ -52,6 +52,16 @@
         * returned 0 means a successful operation
         * returned -1 means EOF error
         * returned -2 means other kind of failure
+* **`int in(char& input)`**
+    * Fill the parameter char with input from the promt
+    * Takes firts input and no enter is needed
+    * Does not have any error handeling
+* **`int in(int& input)`**
+    * Fill the parameter int with input from the promt
+    * Purge anyting after the first (if any) none-number symbol
+    * Minimal error handeling
+        * returned 0 means a successful operation
+        * returned -1 means error, not a number
 
 
 # Known Issues

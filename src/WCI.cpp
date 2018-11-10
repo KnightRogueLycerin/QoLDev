@@ -29,8 +29,8 @@ namespace wci{
     // Wait for any input before continuing
     void wait(){
         unsigned char in = _getch();
-	if (in == 0 || in == 0xE0)
-		in = _getch();
+        if (in == 0 || in == 0xE0)
+            in = _getch();
     }
 
     // Print a chart over all the possible colors in the windows console
@@ -98,5 +98,28 @@ namespace wci{
                 return -1;  // eof error
             else
                 return -2;  // Other kind of failure
+    }
+    int in(char& input) {
+        char in = _getch();         // Input
+        if (in == 0 || in == 0xE0)  // Sometimes needed twice
+            in = _getch();
+        wci::out(std::string(1,in));    // echo
+        input = in;
+	    return 0;
+    }
+    void clearCin(){
+            std::cin.clear();
+            std::cin.ignore(256, '\n');
+    }
+    int in(int& input){
+        int in = 0;
+        std::cin >> in;
+        if(std::cin.fail()){
+            clearCin();
+            return -1;  // Did not obtain integer input
+        }
+        input = in;
+        clearCin();
+        return 0;   // Obtained integer input
     }
 }

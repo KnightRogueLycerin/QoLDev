@@ -28,4 +28,6 @@ namespace wci{
     
     // Input
     int in(std::string& input);
+    int in(char& input);
+    int in(int& input);
 }
