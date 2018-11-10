@@ -62,7 +62,18 @@
     * Minimal error handeling
         * returned 0 means a successful operation
         * returned -1 means error, not a number
-
+* **`int in(float& input)`**
+    * Fill the parameter float with input from the promt
+    * Purge anyting after the first (if any) none-number symbol
+    * Minimal error handeling
+        * returned 0 means a successful operation
+        * returned -1 means error, not a number
+* **`int in(double& input)`**
+    * Fill the parameter double with input from the promt
+    * Purge anyting after the first (if any) none-number symbol
+    * Minimal error handeling
+        * returned 0 means a successful operation
+        * returned -1 means error, not a number
 
 # Known Issues
 * Nothing is in a usable state

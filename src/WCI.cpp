@@ -122,4 +122,26 @@ namespace wci{
         clearCin();
         return 0;   // Obtained integer input
     }
+    int in(float& input){
+        float in = 0;
+        std::cin >> in;
+        if(std::cin.fail()){
+            clearCin();
+            return -1;  // Did not obtain integer input
+        }
+        input = in;
+        clearCin();
+        return 0;   // Obtained integer input
+    }
+    int in(double& input){
+        double in = 0;
+        std::cin >> in;
+        if(std::cin.fail()){
+            clearCin();
+            return -1;  // Did not obtain integer input
+        }
+        input = in;
+        clearCin();
+        return 0;   // Obtained integer input
+    }
 }
