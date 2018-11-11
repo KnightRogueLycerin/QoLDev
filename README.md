@@ -5,7 +5,7 @@
 1. Usable
 1. Development
 1. Known Issues
-1. Planded
+1. Planned
 1. Notes
 1. Style Guide
 
@@ -14,15 +14,15 @@
 # Development
 ## WCI.hpp
 *Windows Console Interface*
-* This library is made to get the moste out of the windos console in an user friendly way
-* using `wci` namespace
-* Colors: BLACK, DARK_BLUE, DARK_GREEN, DARK_TEAL, DARK_RED, PURPLE, BROWN,	GREY, DARK_GREY, BLUE, GREEN, TEAL, RED, PINK, YELLOW, and WHITE
+* This library is made to get the most out of the windows console in an user friendly way
+* Using `wci` namespace
+* Colors: BLACK, DARK_BLUE, DARK_GREEN, DARK_TEAL, DARK_RED, PURPLE, BROWN, GREY, DARK_GREY, BLUE, GREEN, TEAL, RED, PINK, YELLOW, and WHITE
 * Colors work with states, when you set a color it stay that way until another is set
 ### Misc
 * **`void clear()`**
     * Clears the console window
 * **`void wait()`**
-    * Wait for input before coninuing code
+    * Wait for input before continuing code
 * **`void colorChart()`**
     * Print a chart in the console over all 256 color combinations
 ### Output
@@ -39,58 +39,58 @@
 * **`void setColor(const Color text, const Color background)`**
     * Change what the active output colors are
 * **`void setTextColor(const Color color = Color::WHITE)`**
-    * Spesificly change the active text color
+    * Specifically change the active text color
 * **`void setBackgroundColor(const Color color = Color::BLACK)`**
-    * Spesificly change the active background color
+    * Specifically change the active background color
 
 ### Input
 * **`int in(std::string& input)`**
-    * Fill the parameter string with input from the promt
-    * Include whitespace
+    * Fill the parameter `string` with input from the promt
+    * Includes whitespace
     * Minimal error handeling
         * returned 0 means a successful operation
         * returned -1 means EOF error
         * returned -2 means other kind of failure
 * **`int in(char& input)`**
-    * Fill the parameter char with input from the promt
-    * Takes firts input and no enter is needed
-    * Does not have any error handeling
+    * Fill the parameter `char` with input from the promt
+    * Takes first input and no enter is needed
+    * Does not have any error handling
 * **`int in(int& input)`**
-    * Fill the parameter int with input from the promt
+    * Fill the parameter `int` with input from the promt
     * Purge anyting after the first (if any) none-number symbol
-    * Minimal error handeling
+    * Minimal error handling
         * returned 0 means a successful operation
-        * returned -1 means error, not a number
+        * returned -1 means error: not a number
 * **`int in(float& input)`**
-    * Fill the parameter float with input from the promt
+    * Fill the parameter `float` with input from the promt
     * Purge anyting after the first (if any) none-number symbol
-    * Minimal error handeling
+    * Minimal error handling
         * returned 0 means a successful operation
-        * returned -1 means error, not a number
+        * returned -1 means error: not a number
 * **`int in(double& input)`**
-    * Fill the parameter double with input from the promt
+    * Fill the parameter `double` with input from the promt
     * Purge anyting after the first (if any) none-number symbol
-    * Minimal error handeling
+    * Minimal error handling
         * returned 0 means a successful operation
-        * returned -1 means error, not a number
+        * returned -1 means error: not a number
 
 # Known Issues
 * Nothing is in a usable state
 
-# Planed
+# Planned
 ## File
 *A liberay that make it easy to interface with files*
 
 # Notes
-* Implimentation will be moved to the header once it's in a usable state
+* Implementation will be moved to the header once it's in a usable state
 
 # Style Guide
-## Libery Name
+## Library Name
 *Abbreviation explanation*
 * General information
 * Such as namespace
 ### Structural divitions
 * **`Function`**
-    * Function explenation
+    * Function explanation
 * **`Function`**
-    * Function explenation
+    * Function explanation
