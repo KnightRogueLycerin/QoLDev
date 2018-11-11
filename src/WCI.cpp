@@ -9,7 +9,7 @@ namespace wci{
     // For use of SetConsoleTextAttribute(HANDLE, int)
     static HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    // Clears the consol and put the print pointer in the upper left corner
+    // Clears the console and put the print pointer in the upper left corner
     void clear(){
         COORD topLeft = { 0, 0 };
         CONSOLE_SCREEN_BUFFER_INFO screen;
@@ -127,21 +127,21 @@ namespace wci{
         std::cin >> in;
         if(std::cin.fail()){
             clearCin();
-            return -1;  // Did not obtain integer input
+            return -1;  // Did not obtain float input
         }
         input = in;
         clearCin();
-        return 0;   // Obtained integer input
+        return 0;   // Obtained float input
     }
     int in(double& input){
         double in = 0;
         std::cin >> in;
         if(std::cin.fail()){
             clearCin();
-            return -1;  // Did not obtain integer input
+            return -1;  // Did not obtain double input
         }
         input = in;
         clearCin();
-        return 0;   // Obtained integer input
+        return 0;   // Obtained double input
     }
 }
