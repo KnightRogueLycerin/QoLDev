@@ -10,8 +10,6 @@
 1. Style Guide
 
 # Usable 
-
-# Development
 ## WCI.hpp
 *Windows Console Interface*
 * This library is made to get the most out of the windows console in an user friendly way
@@ -73,6 +71,8 @@
     * Minimal error handling
         * returned 0 means a successful operation
         * returned -1 means error: not a number
+
+# Development
 
 # Known Issues
 * Nothing is in a usable state
