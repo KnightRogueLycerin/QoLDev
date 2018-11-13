@@ -10,9 +10,9 @@
 
 void wait_next(bool end){
     if(!end)
-        wci::out("\nPress any key to coninue testing...", wci::DARK_GREY);
+        wci::out("\nPress any key to coninue testing...", wci::DARK_GRAY);
     else
-        wci::out("\nPress any key to complete testing...", wci::DARK_GREY);
+        wci::out("\nPress any key to complete testing...", wci::DARK_GRAY);
     wci::wait();
     wci::clear();
 }
