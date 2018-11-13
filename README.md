@@ -73,13 +73,18 @@
         * returned -1 means error: not a number
 
 # Development
+## File.hpp
+*A liberay that make it easy to interface with files*
+* Todo: start
 
 # Known Issues
-* Nothing is in a usable state
+* ...
 
 # Planned
-## File
-*A liberay that make it easy to interface with files*
+* Logger using file & wci
+    * Write in console and to files
+        * log file, error file, & critical file
+    * Inspiered by Unity3D's `Debug.Log("Mesage");`
 
 # Notes
 * Implementation will be moved to the header once it's in a usable state
