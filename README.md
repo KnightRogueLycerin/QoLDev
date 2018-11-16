@@ -75,10 +75,41 @@
 # Development
 ## File.hpp
 * A library that make it easy to interface with files
-* Todo: start
+* Using `fio` namespace, stands for "file In/Out"
+* **Currently Untested**
+### Data structures
+* **`struct File`**
+    * Conaints:
+        * `std::string` path
+        * `std::vector<std::string>` content
+    * Custom `opertor=` function
+        * Set content to be the same
+        * Doesn't change file path
+### Check
+* **`bool exist(const std::string& path)`**
+    * Checks if file at path is available
+### In
+* **`bool load(File& file)`**
+    * Read from the file at `fio::File.path` to `fio::File.contnet`
+* **`bool load(File& file, const std::string& path)`**
+    * Same as above but with custom path
+    * Will uptade the files path
+* **`bool load(std::vector<std::string>& content, const std::string& path)`**
+    * Variant that doesn't use the custom data structure `fio::File`
+### Out
+* **`bool write(std::string output, const std::string path, bool append = true)`**
+    * Writes a `string` to a file at path
+    * If append is set to `false` the file at path will be cleared
+* **`bool save(File& file)`**
+    * Will clear and write to file at `fio::File.path` form `fio::File.contnet`
+* **`bool save(File& file, const std::string& path, bool updatePath = false)`**
+    * Same as above function but with costom path
+    * May uptade `fio::File.path` to the new path if updatePath is set to `true`
+* **`bool save(std::vector<std::string>& content, const std::string& path)`**
+    * Variant that doesn't use the custom data structure `fio::File`
 
 # Known Issues
-* ...
+* File.hpp is untested
 
 # Planned
 * Logger using file & wci

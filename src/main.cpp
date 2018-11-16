@@ -7,6 +7,7 @@
 //============================================================================
 
 #include "WCI.hpp"
+#include "FIO.hpp"
 
 void wait_next(bool end){
     if(!end)

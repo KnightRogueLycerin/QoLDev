@@ -40,7 +40,8 @@
         "ratio": "cpp",
         "string": "cpp",
         "tuple": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "fstream": "cpp"
     },
     "terminal.integrated.shell.windows": "cmd.exe"
 }
