@@ -82,9 +82,22 @@
     * Conaints:
         * `std::string` path
         * `std::vector<std::string>` content
-    * Custom `opertor=` function
-        * Set content to be the same
-        * Doesn't change file path
+    * Custom `operator` functions
+        * `std::string& operator[](const unsigned int index)`
+            * Access `fio::File.content[]` at index
+        * `bool operator==(const File& other)`
+            * Check if `fio::File.path` and `fio::File.content` are the same
+        * `bool operator!=(const File& other)`
+            * Check if `fio::File.path` or `fio::File.content` are the arn't same
+        * `File& operator=(const File& other)`
+            * Set content to be the same
+            * Doesn't change file path
+        * `File& operator+(const std::string& line)`
+            * Adds string to the end of `fio::File.content`
+            * Doesn't change file path
+        * `File& operator+=(const File& other)`
+            * Adds the rightside `fio::File.content` at the end of leftsides `fio::File.content` 
+            * Doesn't change file path
 ### Check
 * **`bool exist(const std::string& path)`**
     * Checks if file at path is available

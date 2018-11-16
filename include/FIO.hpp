@@ -19,8 +19,25 @@ namespace fio {
         std::string path;
         std::vector<std::string> content;
         // Operators
+        std::string& operator[](const unsigned int index){
+            return content[index];
+        }
+        bool operator==(const File& other){
+            return path == other.path && content == other.content;
+        }
+        bool operator!=(const File& other){
+            return path != other.path || content != other.content;
+        }
         File& operator=(const File& other){
             content.clear();
+            for(auto line : other.content)
+                content.push_back(line);
+            return *this;
+        }
+        File& operator+(const std::string& line){
+            content.push_back(line);
+        }
+        File& operator+=(const File& other){
             for(auto line : other.content)
                 content.push_back(line);
             return *this;
