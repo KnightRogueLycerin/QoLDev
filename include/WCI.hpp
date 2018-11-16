@@ -1,12 +1,19 @@
 #ifndef WCI_HPP
 #define WCI_HPP
 
+//============================================================================
+// Name        : Windows Consol Interface
+// Author      : KnightRougeLycerin
+// Version     : 1.0
+// Copyright   : GNU GPLv3
+// Description : User friendly windows console I/O
+//============================================================================
+
 #include <string>
 #include <conio.h>
 #include <iostream>
 #include <Windows.h>
 
-// Windows Consol Interface
 namespace wci{
     // Window Consol Colors
     enum Color {

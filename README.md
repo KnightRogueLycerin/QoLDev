@@ -74,7 +74,7 @@
 
 # Development
 ## File.hpp
-*A liberay that make it easy to interface with files*
+* A library that make it easy to interface with files
 * Todo: start
 
 # Known Issues
