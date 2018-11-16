@@ -26,10 +26,6 @@ namespace fio {
             return *this;
         }
     };
-    // Implementation ment to left alone >:(
-    namespace implement{
-
-    }
     /* Misc */
     bool exist(const std::string& path);
     /* In */

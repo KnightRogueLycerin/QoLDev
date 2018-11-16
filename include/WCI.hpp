@@ -20,7 +20,7 @@ namespace wci{
 			BLACK, DARK_BLUE, DARK_GREEN, DARK_TEAL, DARK_RED, PURPLE, BROWN,
 			GRAY, DARK_GRAY, BLUE, GREEN, TEAL, RED, PINK, YELLOW, WHITE
 		};
-    namespace implement{    // 'Hiding'
+    namespace implement{    // Implementation ment to left alone >:(
         // For use of SetConsoleTextAttribute(HANDLE, int)
         static HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
         // Color settings

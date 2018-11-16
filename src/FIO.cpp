@@ -1,10 +1,6 @@
 #include "FIO.hpp"
 
 namespace fio{
-    /* Streams, don't cross */
-    static std::ifstream reader;
-    static std::ofstream writer;
-
     /* Misc */
     bool exist(const std::string& path){
         // Test if filepath can be opend for reading
@@ -20,7 +16,7 @@ namespace fio{
     /* In */
     bool load(std::vector<std::string>& content, const std::string& path){
         // Set up & sanity
-        reader.open(path);
+        std::ifstream reader(path);
         if(!reader.is_open() || !reader.good())
             return false;
         std::string line;
@@ -45,7 +41,7 @@ namespace fio{
 
     /* Out */
     bool write(const std::string& output, const std::string& path, bool append){
-        writer.open(path);
+        std::ofstream writer(path);
         if(!writer.is_open())
             return false;
         if(!append)
@@ -56,12 +52,15 @@ namespace fio{
     }
 
     bool save(std::vector<std::string>& content, const std::string& path){
-        writer.open(path);
+        std::ofstream writer(path);
         if(!writer.is_open())
             return false;
         writer.clear();
-        for(auto line : content){
-            writer << line << "\n";
+        for(auto& line : content){
+            if(&line == &content.back())
+                writer << line; // Avoid newline padding
+            else
+                writer << line << "\n";
         }
         writer.close();
         return true;
