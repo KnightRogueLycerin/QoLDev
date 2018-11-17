@@ -71,8 +71,6 @@
     * Minimal error handling
         * returned 0 means a successful operation
         * returned -1 means error: not a number
-
-# Development
 ## File.hpp
 * A library that make it easy to interface with files
 * Using `fio` namespace, stands for "file In/Out"
@@ -121,8 +119,11 @@
 * **`bool save(std::vector<std::string>& content, const std::string& path)`**
     * Variant that doesn't use the custom data structure `fio::File`
 
+# Development
+* ...
+
 # Known Issues
-* File.hpp is untested
+* ...
 
 # Planned
 * Logger using file & wci
