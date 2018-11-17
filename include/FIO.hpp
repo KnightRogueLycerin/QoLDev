@@ -18,8 +18,13 @@ namespace fio {
     struct File{
         std::string path;
         std::vector<std::string> content;
+        // Constructor
+        File(std::string s):path(s){}
         // Operators
-        std::string& operator[](const unsigned int index){
+        std::string& operator[](std::size_t index){
+            return content[index];
+        }
+        const std::string& operator[](std::size_t index) const{
             return content[index];
         }
         bool operator==(const File& other){
@@ -50,7 +55,7 @@ namespace fio {
     bool load(File& file, const std::string& path);
     bool load(File& file);
     /* Out */
-    bool write(std::string output, const std::string path, bool append = true);
+    bool write(const std::string& output, const std::string& path, bool append = true);
 
     bool save(std::vector<std::string>& content, const std::string& path);
     bool save(File& file, const std::string& path, bool updatePath = false);

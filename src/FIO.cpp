@@ -6,7 +6,7 @@ namespace fio{
         // Test if filepath can be opend for reading
         if(FILE *f = std::fopen(path.c_str(), "r")){
             // Clean up and return
-            std::fclose(f); delete f;
+            std::fclose(f);
             return true;
         }
         else
@@ -41,12 +41,17 @@ namespace fio{
 
     /* Out */
     bool write(const std::string& output, const std::string& path, bool append){
-        std::ofstream writer(path);
+        std::ofstream writer;
+        if(!append){
+            writer.open(path.c_str());
+        }
+        else{
+            writer.open(path.c_str(), std::ios::app);
+            writer << "\n";
+        }
         if(!writer.is_open())
             return false;
-        if(!append)
-            writer.clear();
-        writer << output << "\n";
+        writer << output;
         writer.close();
         return true;
     }

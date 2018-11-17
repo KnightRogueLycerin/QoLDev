@@ -9,7 +9,7 @@
 #include "WCI.hpp"
 #include "FIO.hpp"
 
-void wait_next(bool end){
+void wait_next(bool end = false){
     if(!end)
         wci::out("\nPress any key to coninue testing...", wci::DARK_GRAY);
     else
@@ -130,14 +130,91 @@ int wci_test(){
     }
 }
 
+void write(const fio::File& f, bool append = true){
+    fio::write("This is an added line of text", f.path, append);
+}
+void check(const fio::File& f){
+    wci::out(f.path + " ", false);
+    if(fio::exist(f.path))
+        wci::out("exist", wci::GREEN);
+    else
+        wci::out("is missing", wci::RED);
+}
+void line(const fio::File& f, std::size_t index){
+    wci::out(f.path + "[" + std::to_string(index) + "]: ", false);
+    out(f[index], wci::GRAY);
+}
+void print(const fio::File& f){
+    wci::out("File: " + f.path);
+    if(!f.content.empty())
+        for(auto line : f.content){
+            out("\t" + line, wci::GRAY);
+        }
+    else
+        out("\tThis file is empty", wci::DARK_RED);
+}
+int fio_test(){ // Asume wci.hpp works for consol IO
+    wci::out("Creating local files", wci::TEAL);
+    
+    fio::File Feoh("_Feoh.test");    // First symbol of the Futhrak
+    fio::File Ur("_Ur.test");        // Second symbol of the Futhrak
+    fio::File Thorn("_Thorn.test");  // Third symbol of the Futhrak
+    
+    wci::out("Filling local files with content", wci::TEAL);
+    Feoh.content.push_back("This is test file Feoh");
+    Feoh.content.push_back("This is the second row");
+    
+    Ur.content.push_back("This is test file Ur");
+    Ur.content.push_back("This is the second row");
+    Ur.content.push_back("This is the third row");
+    
+    Thorn.content.push_back("This is test file Thorn");
+    Thorn.content.push_back("This is the second row");
+    Thorn.content.push_back("This is the third row");
+    Thorn.content.push_back("This is the fourth row");
+
+    wci::out("Printing local content", wci::TEAL);
+    print(Feoh); print(Ur); print(Thorn);
+
+    wci::out("Save local files", wci::TEAL);
+    fio::save(Feoh); fio::save(Ur); fio::save(Thorn);
+
+    wci::out("Clear local files", wci::TEAL);
+    Feoh.content.clear(); Ur.content.clear(); Thorn.content.clear();
+    print(Feoh); print(Ur); print(Thorn);
+
+    wci::out("Write directly to saved files", wci::TEAL);
+    write(Feoh); write(Ur); write(Thorn, false);
+
+    wci::out("Check if saved files exsist", wci::TEAL);
+    check(Feoh); check(Ur); check(Thorn);
+
+    wci::out("Load saved files", wci::TEAL);
+    fio::load(Feoh); fio::load(Ur); fio::load(Thorn);
+
+    wci::out("Printing local content", wci::TEAL);
+    print(Feoh); print(Ur); print(Thorn);
+
+    wci::out("Printing spesific content lines", wci::TEAL);
+    line(Feoh, 1); line(Ur, 2); line(Thorn, 0);
+
+    wait_next();
+    return 0;
+}
+
 int main() {
     int err;
-
-    if(true){   // wci testing
+    // wci testing
+    if(0){   
         err = wci_test();
-        if(err != 0){
-        return err; 
-        }
+        if(err != 0)
+            wci::out("WCI Error code:" + std::to_string(err), wci::RED);
+    }
+    // fio testing
+    if(1){
+        err = fio_test();
+        if(err != 0)
+            wci::out("FIO Error code:" + std::to_string(err), wci::RED);
     }
     
     wci::out("Thank you for participating!", wci::PINK);
