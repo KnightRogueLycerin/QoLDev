@@ -4,7 +4,7 @@
 //============================================================================
 // Name        : File In/Out
 // Author      : KnightRougeLycerin
-// Version     : 0.01
+// Version     : 1.0
 // Copyright   : GNU GPLv3
 // Description : User friendly file I/O
 //============================================================================
@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <direct.h>
 
 namespace fio {
     // Data structure
@@ -59,6 +60,9 @@ namespace fio {
         else
             return false;
     };
+    void makeDirectory(const std::string& path){
+        mkdir(path.c_str());  // TODO: Err
+    }
     /* In */
     bool load(std::vector<std::string>& content, const std::string& path){
         // Set up & sanity
@@ -85,6 +89,14 @@ namespace fio {
         return load(file.content, file.path);
     };
     /* Out */
+    bool clear(const std::string& path){
+        std::ofstream writer;
+        writer.open(path.c_str());
+        if(!writer.is_open())
+            return false;
+        writer.close();
+        return true;
+    };
     bool write(const std::string& output, const std::string& path, bool append = true){
         std::ofstream writer;
         if(!append){
@@ -92,11 +104,10 @@ namespace fio {
         }
         else{
             writer.open(path.c_str(), std::ios::app);
-            writer << "\n";
         }
         if(!writer.is_open())
             return false;
-        writer << output;
+        writer << output << "\n";
         writer.close();
         return true;
     };
@@ -125,4 +136,4 @@ namespace fio {
     };
 }
 
-#endif
+#endif  // FIO_HPP

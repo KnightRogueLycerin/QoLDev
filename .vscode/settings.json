@@ -41,7 +41,8 @@
         "string": "cpp",
         "tuple": "cpp",
         "vector": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "ctime": "cpp"
     },
     "terminal.integrated.shell.windows": "cmd.exe"
 }

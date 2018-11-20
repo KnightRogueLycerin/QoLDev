@@ -6,6 +6,7 @@
 // Description : Libraries for QoL
 //============================================================================
 
+#include "KLog.hpp"
 #include "WCI.hpp"
 #include "FIO.hpp"
 
@@ -127,6 +128,7 @@ int wci_test(){
         wci::out(s, wci::TEAL);
         
         wait_next(false);
+        return 0;
     }
 }
 
@@ -202,6 +204,63 @@ int fio_test(){ // Asume wci.hpp works for consol IO
     return 0;
 }
 
+int KLog_test(){    // Asume wci & fio works
+    // Data block
+    int err = 0;
+    fio::File fLog(klog::dir::LOG);
+    fio::File fWarning(klog::dir::WARNING);
+    fio::File fCritical(klog::dir::CRITICAL);
+    // Print out directives
+    wci::out("> KLog settings", wci::DARK_TEAL);
+    wci::out("Directives printout for KLog");
+    wci::out("\tLog: " + klog::dir::LOG, wci::GRAY);
+    wci::out("\tWarning: " + klog::dir::WARNING, wci::GRAY);
+    wci::out("\tCritical: " + klog::dir::CRITICAL, wci::GRAY);
+
+    wci::out("> Create dir", wci::DARK_TEAL);
+    klog::create();
+
+    wci::out("> Test print", wci::DARK_TEAL);   err--;
+    if(!klog::critical("This is loged towards the " + klog::dir::CRITICAL + " file", true))
+        return err;
+    if(!klog::warning("This is loged towards the " + klog::dir::WARNING + " file", true))
+        return err;
+    if(!klog::log("This is loged towards the " + klog::dir::LOG + " file", true))
+        return err;
+    err--;
+    for(auto i = 0; i < 10; i++){
+        if(!klog::log("More lines of logging"))
+            return err;
+    }
+
+    wci::out("> Log test", wci::DARK_TEAL); err--;
+    if(!fio::load(fCritical))
+        return err;
+    print(fCritical);
+    if(!fio::load(fWarning))
+        return err;
+    print(fWarning);
+    if(!fio::load(fLog))
+        return err;
+    print(fLog);
+
+    wci::out("> Reset test", wci::DARK_TEAL);   err--;
+    if(!klog::reset())
+        return err;
+    err--;
+    if(!fio::load(fCritical))
+        return err;
+    print(fCritical);
+    if(!fio::load(fWarning))
+        return err;
+    print(fWarning);
+    if(!fio::load(fLog))
+        return err;
+    print(fLog);
+
+    return 0;
+}
+
 int main() {
     int err;
     // wci testing
@@ -211,10 +270,16 @@ int main() {
             wci::out("WCI Error code:" + std::to_string(err), wci::RED);
     }
     // fio testing
-    if(1){
+    if(0){
         err = fio_test();
         if(err != 0)
             wci::out("FIO Error code:" + std::to_string(err), wci::RED);
+    }
+    // KLog test
+    if(1){
+        err = KLog_test();
+        if(err != 0)
+            wci::out("KLog Error code:" + std::to_string(err), wci::RED);
     }
     
     wci::out("Thank you for participating!", wci::PINK);

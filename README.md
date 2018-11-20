@@ -118,6 +118,32 @@
     * May uptade `fio::File.path` to the new path if updatePath is set to `true`
 * **`bool save(std::vector<std::string>& content, const std::string& path)`**
     * Variant that doesn't use the custom data structure `fio::File`
+## KLog
+* *Knigthroguelycerin's Logger*
+* Use `klog` namespace
+* Logging tool that uses 3 levels
+    * Log: for normal logging
+    * Warning: for things that shoudln't happen
+    * Critical: for when shit have hit the fan
+* Store in .log files (normal text format) in /Logs
+* Adds timestamps to file entries, `[HH:MM:SS] `
+### Logging
+* **`bool critical(const std::string& message, bool inConsole = false)`**
+    * Write message to the critical file
+    * Write in red to the console if `inConsole` is `true`
+* **`bool warning(const std::string& message, bool inConsole = false)`**
+    * Write message to the warning file
+    * Write in yellow to the console if `inConsole` is `true`
+* **`bool log(const std::string& message, bool inConsole = false)`**
+    * Write message to the log file
+    * Write in gray to the console if `inConsole` is `true`
+### Misc
+* **`bool reset()`**
+    * Clear all logs
+* **`bool create()`**
+    * Create folder and files for logging
+* **`void timeStamp(std::string& stamp)`**
+    * Fill the stamp with `[HH:MM:SS] ` att system time, with a whitespace at the end
 
 # Development
 * ...
@@ -126,10 +152,7 @@
 * ...
 
 # Planned
-* Logger using file & wci
-    * Write in console and to files
-        * log file, error file, & critical file
-    * Inspiered by Unity3D's `Debug.Log("Mesage");`
+* ...
 
 # Notes
 * Implementation will be moved to the header once it's in a usable state
